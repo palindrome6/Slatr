@@ -63,11 +63,23 @@ const SelectBox = ({ onChange, style, value }: SelectProps) => {
 export default SelectBox;
 
 const StyledSelect = styled(Select)`
-    width: 300px;
+    width: 600px;
     border: 1px solid white;
-    /* color: white; */
-    :focus{
+    .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+        background: white !important;
+    }
+    .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:focus{
+        outline: none;
         border: 1px solid black;
+    }
+    .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input:focus-visible{
+        outline: none !important;
+    }
+    .css-1d3z3hw-MuiOutlinedInput-notchedOutline:focus-visible{
+        outline: none !important;
+    }
+    .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root:focus-visible{
+        outline: none !important;
     }
 `;
 

@@ -17,7 +17,7 @@ function App() {
 export default App;
 
 const AppContainer = styled.div`
- background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url(${backgroundimage});
+  background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url(${backgroundimage});
   background-size: cover;
   background-repeat: none;
   position: relative; 

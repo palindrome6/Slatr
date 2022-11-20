@@ -40,9 +40,9 @@ const TranslatedText = () => {
     return (
         <>
             <StyledSelectBox>
-                <SelectBox style={{ marginLeft: '90px' }} onChange={setFromLanguage} value={fromLang}></SelectBox>
+                <SelectBox onChange={setFromLanguage} value={fromLang}></SelectBox>
                 <StyledSwapIcon onClick={swapLanguages}></StyledSwapIcon>
-                <SelectBox style={{ marginRight: '100px' }} onChange={setToLanguage} value={toLang}></SelectBox>
+                <SelectBox onChange={setToLanguage} value={toLang}></SelectBox>
             </StyledSelectBox>
             <StyledTextBox>
                 <TextBox onChangeText={setTextToTranslate} value={textToTransalate}></TextBox>
@@ -67,10 +67,10 @@ const StyledTranslateIcon = styled(TranslateIcon)`
     color: black;
     font-size: 100px !important;
     height: 100px;
-    padding-top: 70px;
+    padding-top: 180px;
     cursor: pointer;
     :hover{
-        box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+        opacity: 0.6;
     }
 `
 
@@ -81,7 +81,7 @@ const StyledSwapIcon = styled(SwapHorizontalCircleIcon)`
     margin-right: 60px;
     cursor: pointer;
     :hover{
-        box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1)
+        opacity: 0.6;
     }
 `
 
@@ -89,7 +89,8 @@ const StyledSelectBox = styled(Box)`
     margin-top: 50px;
     display:flex;
     align-items: center;
-    justify-content: space-around;
-    background-color: white;
+    justify-content: space-between;
     height: 80px;
+    padding-left: 50px;
+    padding-right: 50px;
 `
