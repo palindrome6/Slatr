@@ -39,15 +39,16 @@
 }
 
 @font-face {
-  font-family: "MontserratBold";
+  font-family: "CinzelRegular";
   /*Can be any text*/
-  src: local("MontserratBold"),
-    url("./fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+  src: local("CinzelRegular"),
+    url("./fonts/Cinzel/Cinzel-Regular.ttf") format("truetype");
 }
 
+
 @font-face {
-  font-family: "Abel";
+  font-family: "CardoRegular";
   /*Can be any text*/
-  src: local("Abel"),
-    url("./fonts/Abel/Abel-Regular.ttf") format("truetype");
+  src: local("CardoRegular"),
+    url("./fonts/Cardo/Cardo-Regular.ttf") format("truetype");
 }

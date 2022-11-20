@@ -27,13 +27,14 @@ export default App;
 
 const StyledTypography = styled.div`
     display: flex;
-    color: white;
-    font-family: "Abel";
-    font-size: 50px;
-    height: 70px;
+    color: black;
+    font-family: "CinzelRegular";
+    align-items: center;
+    font-size: 70px;
+    height: 120px;
 `;
 
 const StyledBox = styled(Box)`
-    background-color: #8467D7;
-   
+    /* background-color: white; */
+    display: flex;
 `

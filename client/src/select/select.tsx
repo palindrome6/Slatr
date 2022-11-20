@@ -8,17 +8,38 @@ interface ILanguageKey {
 }
 
 type SelectProps = {
-    fromOrTo: string
+    onChange?: (text: string) => void;
+    style?: React.CSSProperties;
+    value?: string;
 };
 
-const SelectBox = ({ fromOrTo }: SelectProps) => {
+const SelectBox = ({ onChange, style, value }: SelectProps) => {
     const languageData: ILanguageKey = data;
-    const defaultSelectState = fromOrTo === 'to' ? 'en' : 'nl'
-    const [selectedLanguage, setSelectedLanguage] = React.useState(defaultSelectState);
+    Object.values(data).sort().forEach(a => data[Object.keys(data).find(key => data[key as keyof typeof data] === a) as keyof typeof data] = a);
+    const [selectedLanguage, setSelectedLanguage] = React.useState(value);
+    React.useEffect(() => {
+        setSelectedLanguage(value);
+    }, [value]);
     const onLanguageChange = (event: SelectChangeEvent<unknown>, child: ReactNode) => {
-        const language = event.target.value;
-        setSelectedLanguage(language as string);
+        const language: string = event.target.value as string;
+        setSelectedLanguage(language);
+        if (onChange !== undefined && onChange !== null) {
+            onChange(language)
+        }
     }
+    // const getFlagOfCountry = async (countryCode: string) => {
+    //     const res = await fetch(`https://countryflagsapi.com/svg/${countryCode}`, {
+    //         method: 'get',
+    //         headers: {
+    //             "Access-Control-Allow-Origin": "*"
+    //         }
+    //     })
+    //     const svg = await res.text();
+    //     const holder = document.createElement('div');
+    //     holder.innerHTML = svg;
+    //     console.log(holder)
+    // }
+    // getFlagOfCountry('nl');
     return (
         <>
             <StyledSelect
@@ -26,7 +47,8 @@ const SelectBox = ({ fromOrTo }: SelectProps) => {
                 id="demo-simple-select"
                 label="Language"
                 value={selectedLanguage}
-                onChange={onLanguageChange}>
+                onChange={onLanguageChange}
+                style={style}>
                 {Object.keys(languageData).map((language, index) => {
                     return (
                         <StyledMenu key={`${index}${language}`} value={language}>{languageData[language as keyof typeof languageData]}</StyledMenu>
@@ -41,10 +63,13 @@ const SelectBox = ({ fromOrTo }: SelectProps) => {
 export default SelectBox;
 
 const StyledSelect = styled(Select)`
-    width: 200px;
-    border: 1px solid white;    
+    width: 300px;
+    border: 1px solid white;
+    /* color: white; */
+    :focus{
+        border: 1px solid black;
+    }
 `;
 
 const StyledMenu = styled(MenuItem)`
-    color: white;
 `

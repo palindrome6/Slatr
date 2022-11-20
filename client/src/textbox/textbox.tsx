@@ -1,23 +1,34 @@
 import { Box, TextField } from "@mui/material";
+import React from "react";
 import styled from "styled-components";
 
-const TextBox = () => {
+type TextBoxProps = {
+    onChangeText?: (event: any) => void;
+    value?: string;
+};
+const TextBox = ({ value, onChangeText }: TextBoxProps) => {
+    const [textValue, setTextValue] = React.useState(value);
+    const handleOnChangeText = (event: any) => {
+        const textToDisplay = event.target.value;
+        setTextValue(textToDisplay);
+        if (onChangeText !== undefined) {
+            onChangeText(textToDisplay);
+        }
+    }
     return (
-        // <StyledBox>
-        <StyledTextField id="outlined-basic" multiline={true}
+        <StyledTextField id="outlined-basic" multiline={true} onChange={handleOnChangeText} value={value}
             rows={10} />
-        // </StyledBox>
     )
 }
 
 export default TextBox;
 
-const StyledBox = styled(Box)`
-    display: flex;
-    flex-direction: row;
-    margin-top: 50px;
-`
 const StyledTextField = styled(TextField)`
-    border-radius: 40px;
-    width: 500px;
+    border-radius: 20px;
+    width: 600px;
+    background-color: white;
+    .css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root{
+        font-family: "CardoRegular" !important;
+        font-size: 30px;
+    }
 `

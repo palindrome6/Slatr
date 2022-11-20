@@ -2,13 +2,14 @@ import { Box } from "@mui/material"
 import styled from "styled-components";
 import SelectBox from "../select/select";
 import SwapHorizontalCircleIcon from '@mui/icons-material/SwapHorizontalCircle';
+import React from "react";
 
 const LanguageSelection = () => {
     return (
         <StyledBox>
-            <SelectBox fromOrTo={'from'}></SelectBox>
+            <SelectBox></SelectBox>
             <SwapHorizontalCircleIcon style={{ paddingLeft: '60px', paddingRight: '60px', color: 'white', fontSize: '50px' }}></SwapHorizontalCircleIcon>
-            <SelectBox fromOrTo={'to'}></SelectBox>
+            <SelectBox></SelectBox>
         </StyledBox>
     )
 }
@@ -20,7 +21,7 @@ const StyledBox = styled(Box)`
     display:flex;
     align-items: center;
     justify-content: center;
-    background-color: #8467D7;
+    background-color: #845cc3;
     border-radius: 15px;
     height: 80px;
 `

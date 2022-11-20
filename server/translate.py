@@ -1,6 +1,7 @@
 from flask import Flask
 from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer
-from flask import request
+from flask import request;
+from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__)
@@ -9,6 +10,7 @@ tokenizer = M2M100Tokenizer.from_pretrained("facebook/m2m100_418M")
 
 
 @app.route('/translate', methods=['GET'])
+@cross_origin() 
 def translate():
     from_lang = request.args.get('fromlang')
     to_lang = request.args.get('tolang')
