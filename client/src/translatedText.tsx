@@ -2,9 +2,10 @@ import { Box } from "@mui/material";
 import styled from "styled-components";
 import TextBox from "./textbox/textbox";
 import TranslateIcon from '@mui/icons-material/Translate';
-import SwapHorizontalCircleIcon from '@mui/icons-material/SwapHorizontalCircle';
 import SelectBox from "./select/select";
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExchange } from '@fortawesome/free-solid-svg-icons';
 
 const TranslatedText = () => {
     const [textToTransalate, setTextToTranslate] = React.useState('');
@@ -39,16 +40,18 @@ const TranslatedText = () => {
     }
     return (
         <>
-            <StyledSelectBox>
-                <SelectBox onChange={setFromLanguage} value={fromLang}></SelectBox>
-                <StyledSwapIcon onClick={swapLanguages}></StyledSwapIcon>
-                <SelectBox onChange={setToLanguage} value={toLang}></SelectBox>
-            </StyledSelectBox>
-            <StyledTextBox>
-                <TextBox onChangeText={setTextToTranslate} value={textToTransalate}></TextBox>
-                <StyledTranslateIcon onClick={displayTranslatedText}></StyledTranslateIcon>
-                <TextBox onChangeText={setTranslatedText} value={translatedText}></TextBox>
-            </StyledTextBox>
+            <Container>
+                <StyledSelectBox>
+                    <SelectBox onChange={setFromLanguage} value={fromLang}></SelectBox>
+                    <StyledSwapIcon icon={faExchange} size="lg" onClick={swapLanguages}></StyledSwapIcon>
+                    <SelectBox onChange={setToLanguage} value={toLang}></SelectBox>
+                </StyledSelectBox   >
+                <StyledTextBox>
+                    <TextBox onChangeText={setTextToTranslate} value={textToTransalate}></TextBox>
+                    <StyledTranslateIcon onClick={displayTranslatedText}></StyledTranslateIcon>
+                    <TextBox onChangeText={setTranslatedText} value={translatedText}></TextBox>
+                </StyledTextBox>
+            </Container>
         </>
     )
 }
@@ -58,39 +61,41 @@ export default TranslatedText;
 const StyledTextBox = styled(Box)`
     display: flex;
     flex-direction: row;
-    margin-top: 50px;
     justify-content: space-between;
-    padding-left: 50px;
-    padding-right: 50px;
+    align-items: center;
+    padding: 20px 20px;
+    margin: 0 50px;
 `
 const StyledTranslateIcon = styled(TranslateIcon)`
     color: black;
-    font-size: 100px !important;
+    font-size: 30px !important;
     height: 100px;
-    padding-top: 180px;
     cursor: pointer;
     :hover{
         opacity: 0.6;
     }
 `
 
-const StyledSwapIcon = styled(SwapHorizontalCircleIcon)`
-    color: black;
-    font-size: 50px !important;
-    margin-left: 60px;
-    margin-right: 60px;
+const Container = styled.div`
+    display: flex;
+    flex-direction:column;
+    color: #dae3de;
+    opacity: 1;
+    height: 450px;
+    border-radius: 7px;
+    margin: 50px 50px;
+`
+
+const StyledSwapIcon = styled(FontAwesomeIcon)`
+    margin: 10px 0px;
     cursor: pointer;
-    :hover{
-        opacity: 0.6;
-    }
+    color: #1e363e;
 `
 
 const StyledSelectBox = styled(Box)`
-    margin-top: 50px;
     display:flex;
     align-items: center;
     justify-content: space-between;
     height: 80px;
-    padding-left: 50px;
-    padding-right: 50px;
+    margin: 20px 50px;
 `

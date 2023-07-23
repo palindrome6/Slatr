@@ -3,13 +3,26 @@ import './App.css';
 import AppBar from './appbar/appbar';
 import TranslatedText from './translatedText';
 import styled from "styled-components";
-import backgroundimage from "./assets/languages-background.jpg";
+import AnimatedTitle from './AnimatedTitle';
+import DotRing from './cursor/DotRingCursor';
 
 function App() {
+  const [showAnimatedTitle, setShowAnimatedTitle] = React.useState(true)
+  const changePageTimeOut = setTimeout(() => {
+    setShowAnimatedTitle(false);
+    clearTimeout(changePageTimeOut);
+  }, 2000)
   return (
     <AppContainer className="app-container">
-      <AppBar></AppBar>
-      <TranslatedText></TranslatedText>
+      <DotRing />
+      {showAnimatedTitle === true ?
+        <AnimatedTitle></AnimatedTitle>
+        :
+        <MainContent>
+          <AppBar></AppBar>
+          <TranslatedText></TranslatedText>
+        </MainContent>
+      }
     </AppContainer>
   );
 }
@@ -17,19 +30,25 @@ function App() {
 export default App;
 
 const AppContainer = styled.div`
-  background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url(${backgroundimage});
-  background-size: cover;
-  background-repeat: none;
   position: relative; 
   height: 100vh;
   width: 100vw;
+  
 `
-const StyledBackground = styled.div`
-  opacity: 0.5;
-  background-image: url(${backgroundimage});
-  background-size: cover;
-  background-repeat: none;
-  width: 100vw;
-  height: 100vh;
+
+const MainContent = styled.div`
   position: absolute;
+  bottom: -100%;
+  opacity:0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+
+  @keyframes smooth-appear {
+  to{
+    bottom: 20px; 
+    opacity:1;
+  }
+}
+animation: smooth-appear 2s ease forwards;
 `

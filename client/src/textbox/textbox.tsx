@@ -1,4 +1,3 @@
-import { Box, TextField } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
 
@@ -16,19 +15,25 @@ const TextBox = ({ value, onChangeText }: TextBoxProps) => {
         }
     }
     return (
-        <StyledTextField id="outlined-basic" multiline={true} onChange={handleOnChangeText} value={value}
-            rows={10} />
+        <StyledTextField id="outlined-basic" onChange={handleOnChangeText} value={value}
+            placeholder="Enter text"
+            rows={8} />
     )
 }
 
 export default TextBox;
 
-const StyledTextField = styled(TextField)`
-    border-radius: 20px;
-    width: 600px;
-    background-color: white;
-    .css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root{
-        font-family: "CardoRegular" !important;
-        font-size: 30px;
-    }
+const StyledTextField = styled.textarea`
+    border-radius: 5px;
+    /* border: solid 1px #dae3de; */
+    width: 480px;
+    background-color: transparent;
+    color: #1e363e !important;
+    outline: 0;
+    resize: none;
+    font-size: 15px;
+    background-image: linear-gradient(#dae3de 50%, #F9F9F9 50%);
+    background-size: 100% 4rem;
+    border: 1px solid #CCC;
+    line-height: 2rem;
 `

@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+body {
+  background-color: #DAE3DE;
+  font-family: "Circular";
+  background-image: url('./assets/backround.webp');
+  mix-blend-mode: multiply;
+  background-size: cover;
+  background-repeat: none;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -39,16 +48,15 @@
 }
 
 @font-face {
-  font-family: "CinzelRegular";
+  font-family: "Apercu";
   /*Can be any text*/
-  src: local("CinzelRegular"),
-    url("./fonts/Cinzel/Cinzel-Regular.ttf") format("truetype");
+  src: local("Apercu"),
+    url("./fonts/Apercu\ Pro\ Medium.otf") format("opentype");
 }
 
-
 @font-face {
-  font-family: "CardoRegular";
+  font-family: "Circular";
   /*Can be any text*/
-  src: local("CardoRegular"),
-    url("./fonts/Cardo/Cardo-Regular.ttf") format("truetype");
+  src: local("Circular"),
+    url("./fonts/CircularStd-Medium.otf") format("opentype");
 }
