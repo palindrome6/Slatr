@@ -6,5 +6,4 @@ The result of this concern is Slatr. It is a pretty basic translator. We use the
 
 We plan to host this at some point (link will be added soon).
 
-
-![screenshot](https://user-images.githubusercontent.com/11848325/202927779-0ed7561b-0fbf-4e92-82d5-c8ae1c25fdbb.png)
+<img width="1300" alt="Screenshot 2023-07-24 at 10 11 40" src="https://github.com/palindrome6/Slatr/assets/11848325/39dcf3e5-c7d0-4c10-af81-de7936da6613">
